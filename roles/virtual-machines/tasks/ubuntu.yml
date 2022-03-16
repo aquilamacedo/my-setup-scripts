@@ -1,0 +1,12 @@
+- name: Install required virtualization packages
+  apt:
+    name:
+      - libvirt-daemon-system
+      - libvirt-clients
+      - bridge-utils
+      - qemu-kvm
+      - virt-top
+      - libguestfs-tools
+      - virt-manager
+    state: present
+  become: true

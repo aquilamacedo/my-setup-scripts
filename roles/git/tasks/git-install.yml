@@ -1,0 +1,30 @@
+---
+# criar arquivo geral de configuração global
+- name: Update repository
+  apt_repository:
+   repo: 'ppa:git-core/ppa'
+   state: present
+
+- name: Installing git
+  apt:
+    name: git
+    state: present
+    update_cache: yes
+
+- name: Setting git user
+  git_config:
+    name: user.name
+    scope: global
+    value: "{{ git_username }}"
+
+- name: Setting git email
+  git_config:
+    name: user.email
+    scope: global
+    value: "{{ git_email }}"
+
+- name: Setting git editor
+  git_config:
+    name: core.editor
+    scope: global
+    value: "{{ git_editor }}"

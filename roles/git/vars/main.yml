@@ -1,0 +1,5 @@
+---
+# vars file for git
+git_username: Aquila Macedo
+git_email: aquilamacedo@riseup.net
+git_editor: vim
