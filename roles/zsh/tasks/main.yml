@@ -1,0 +1,4 @@
+---
+# tasks file for zsh
+- include: install-zsh.yml
+- include: configuring-zsh.yml

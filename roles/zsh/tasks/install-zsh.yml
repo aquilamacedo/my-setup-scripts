@@ -1,0 +1,11 @@
+---
+# installing zsh package.
+#
+- name: install zsh packages
+  apt:
+    name:
+      - zsh
+    state: latest
+    install_recommends: no
+    update_cache: yes
+    cache_valid_time: 86400
