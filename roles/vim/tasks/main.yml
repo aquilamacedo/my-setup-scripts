@@ -1,0 +1,5 @@
+---
+# tasks file for vim
+- include: install-vim.yml
+- include: configuring-vim.yml
+

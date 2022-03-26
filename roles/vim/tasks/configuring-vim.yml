@@ -1,0 +1,6 @@
+---
+
+- name: adding .vimrc configuration file
+  copy:
+    src: files/.vimrc.j2
+    dest: ".vimrc"

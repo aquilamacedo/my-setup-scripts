@@ -1,0 +1,4 @@
+---
+
+- name: installing vim
+  apt: name=vim state=present
