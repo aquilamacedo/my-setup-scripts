@@ -2,6 +2,7 @@
 # installing zsh package.
 #
 - name: install zsh packages
+  become: yes
   apt:
     name:
       - zsh

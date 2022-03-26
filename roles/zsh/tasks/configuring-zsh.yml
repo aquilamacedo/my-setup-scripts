@@ -1,9 +1,10 @@
 ---
 
 - name: cloning repository
+  become: yes
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh
-    dest: "{{ ansible_user_id }}/.oh-my-zsh"
+    dest: ".oh-my-zsh"
 
 - name: ensure user is using zsh shell
   become: yes
@@ -12,21 +13,18 @@
     shell: /bin/zsh
 
 - name: creating new ~/.zshrc
-  synchronize: src=files/zshrc.j2 dest={{ ansible_user_id }}/.zshrc
-
-- name: changing default ZSH theme to Bira
-  lineinfile:
-    path: /home/{{ ansible_user_id }}/.zshrc
-    regexp: '^ZSH_THEME='
-    line: 'ZSH_THEME="bira"'
+  copy:
+    src: files/zshrc.j2
+    dest: ".zshrc"
 
 - name: adding auto suggestions plugin
+  become: yes
   git:
     repo: https://github.com/zsh-users/zsh-autosuggestions.git
-    dest: "{{ ansible_user_id }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    dest: ".oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
-- name: ensure user is using zsh shell
-  become: yes
-  user:
-    name: "{{ ansible_user_id }}"
-    shell: /bin/zsh
+- name: changing default ZSH Path
+  lineinfile:
+    path: ".zshrc"
+    regexp: '^export ZSH='
+    line: 'export ZSH="/home/{{ ansible_user_id }}/.oh-my-zsh"'
