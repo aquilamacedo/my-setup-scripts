@@ -1,0 +1,22 @@
+set nu!
+map q :quit<CR>
+set autoindent
+set incsearch
+set wildmenu
+set laststatus=2
+
+noremap <Leader>\t :botright vertical terminal <CR>
+
+nnoremap <c-z> :u<CR>      " Avoid using this**
+inoremap <c-z> <c-o>:u<CR>
+
+autocmd VimEnter * if exists(":Lexplore") | exe "map <C-n> :Lexplore <CR>" | else | exe "map <C-n> :Vexplore <CR>" | endif
+
+let g:netrw_liststyle=3
+let g:netrw_chgwin=2
+let g:netrw_sort_sequence = '[/]$,'
+let g:netrw_banner = 0
+let g:netrw_winsize = -28
+let g:netrw_list_hide= '..swp$'
+
+Conversar em @Rexen

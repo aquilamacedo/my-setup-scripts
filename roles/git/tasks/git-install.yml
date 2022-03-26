@@ -1,9 +1,5 @@
 ---
 # criar arquivo geral de configuração global
-- name: Update repository
-  apt_repository:
-   repo: 'ppa:git-core/ppa'
-   state: present
 
 - name: Installing git
   apt:
