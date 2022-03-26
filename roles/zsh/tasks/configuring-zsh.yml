@@ -12,9 +12,7 @@
     shell: /bin/zsh
 
 - name: creating new ~/.zshrc
-  templates:
-    src: zshrc.j2
-    dest: "{{ ansible_user_id }}/.zshrc"
+  synchronize: src=files/zshrc.j2 dest={{ ansible_user_id }}/.zshrc
 
 - name: changing default ZSH theme to Bira
   lineinfile:
